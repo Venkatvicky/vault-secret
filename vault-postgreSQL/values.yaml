@@ -1,7 +1,7 @@
 
 vault:
   image: hashicorp/vault:1.15.0
-  replicas: 2
+  replicas: 1
   serviceType: LoadBalancer
   storagePath: /vault/data
   ingress:
@@ -10,7 +10,7 @@ vault:
 
 postgres:
   image: postgres:15
-  replicas: 2 
+  replicas: 1 
   serviceType: LoadBalancer
   storagePath: /var/lib/postgresql/data
   username: vault_user
