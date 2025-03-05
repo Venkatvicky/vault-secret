@@ -23,4 +23,4 @@ spec:
       volumes:
       - name: vault-storage
         persistentVolumeClaim:
-          claimName: vault-pvc
+          claimName: vault-pvc-new
