@@ -13,14 +13,22 @@ spec:
         app: vault
     spec:
       containers:
-      - name: vault
-        image: {{ .Values.vault.image }}
-        ports:
-        - containerPort: 8200
-        volumeMounts:
-        - name: vault-storage
-          mountPath: {{ .Values.vault.storagePath }}
+        - name: vault
+          image: {{ .Values.vault.image }}
+          env:
+            - name: VAULT_ADDR
+              value: "http://0.0.0.0:8200"
+          ports:
+            - containerPort: 8200
+          volumeMounts:
+            - name: vault-config
+              mountPath: /etc/vault.d
+            - name: vault-storage
+              mountPath: {{ .Values.vault.storagePath }}
       volumes:
-      - name: vault-storage
-        persistentVolumeClaim:
-          claimName: vault-pvc-new
+        - name: vault-config
+          configMap:
+            name: vault-config
+        - name: vault-storage
+          persistentVolumeClaim:
+            claimName: vault-pvc
