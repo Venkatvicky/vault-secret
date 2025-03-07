@@ -1,4 +1,4 @@
-# templates/vault-configmap.yaml
+{{- if .Values.vault.createConfigMap }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -13,3 +13,4 @@ data:
       tls_disable = 1
     }
     disable_mlock = true
+{{- end }}
