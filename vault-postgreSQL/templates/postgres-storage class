@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: postgres-storage-class
+provisioner: kubernetes.io/aws-ebs  # Or your cloud provider's provisioner
+parameters:
+  type: gp2  # AWS EBS volume type (or change for your provider)
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
