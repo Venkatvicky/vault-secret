@@ -10,6 +10,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: manual
+  storageClassName: gp2
   hostPath:
     path: /mnt/vault-data
