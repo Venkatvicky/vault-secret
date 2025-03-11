@@ -10,4 +10,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: vault-storage-class
+  storageClassName: vault-storage-class-gp3
