@@ -2,8 +2,8 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: vault-storage-class
-provisioner: kubernetes.io/aws-ebs # Change based on your setup
+provisioner: kubernetes.io/aws-ebs
 parameters:
-  type: gp2 # AWS EBS type (for example)
+  type: gp3  # Updated to gp3 for Vault as well
 reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
